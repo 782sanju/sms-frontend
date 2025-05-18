@@ -1,0 +1,148 @@
+// Variables
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+$breakpoint-sm: 600px;
+$transition-duration: 0.3s;
+$animation-curve: cubic-bezier(0.4, 0, 0.2, 1);
+$card-border-radius: 12px;
+$card-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+$card-background: rgba(255, 255, 255, 0.95);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.auth-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.1), rgba(156, 39, 176, 0.1));
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .auth-card {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 32px;
+    transform-origin: center;
+    animation: card-appear 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 16px;
+
+    @media (max-width: 600px) {
+      padding: 24px;
+      margin: 0 8px;
+    }
+
+    &__header {
+      text-align: center;
+      margin-bottom: 32px;
+
+      h1 {
+        color: #1976d2;
+        margin-bottom: 8px;
+        font-size: 2.5rem;
+
+        @media (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
+
+      p {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 1.1rem;
+
+        @media (max-width: 600px) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .MuiTextField-root {
+        width: 100%;
+        
+        .MuiOutlinedInput-root {
+          background-color: rgba(255, 255, 255, 0.8);
+          
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+          }
+          
+          &.Mui-focused {
+            background-color: #ffffff;
+          }
+        }
+      }
+
+      .submit-button {
+        margin-top: 24px;
+        height: 48px;
+        font-size: 1.1rem;
+        text-transform: none;
+        background: linear-gradient(45deg, #1976d2, #2196f3);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: linear-gradient(45deg, #1565c0, #1976d2);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    &__footer {
+      margin-top: 32px;
+      text-align: center;
+
+      a {
+        color: #1976d2;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 4px 8px;
+        border-radius: 4px;
+
+        &:hover {
+          color: #1565c0;
+          background-color: rgba(25, 118, 210, 0.1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+} 
